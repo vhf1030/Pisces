@@ -17,5 +17,24 @@
 
 
 ### git setting
+$ git clone https://github.com/vhf1030/ml_pisces.git
+
 $ git config --global user.name "YourName"
 $ git config --global user.email "YourEmail@example.com"
+
+
+### 자주쓰는 git 명령어
+$ git log
+    - commit 내역 확인
+$ git status
+    - 현재 파일 변경 상태 확인
+$ git diff
+    - 파일 변경 내용 확인
+
+
+### git 규칙
+1. git pull 진행 후 작업
+2. 브랜치는 따로 구분하지 않음 - 번거로우니까
+
+
+뭐가 바뀌었나
