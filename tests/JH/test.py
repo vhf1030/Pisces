@@ -1,1 +1,1 @@
-print("soojeong")
+print("서연님 과자 하나 골라보시죠")
