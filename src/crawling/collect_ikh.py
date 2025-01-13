@@ -47,14 +47,14 @@ def run_fetch():
 
     # 데이터를 DataFrame으로 변환
     df = pd.DataFrame(all_data)
-    df.shape
+    # df.shape
 
     # 날짜 형식 변환
     if not df.empty:
         df["priceDate"] = pd.to_datetime(df["priceDate"])
 
     today = time.strftime("%Y-%m-%d")
-    today
+    # today
 
     # 파일로 저장
     output_file = f"data/raw/ikh_data_{today}.csv"
