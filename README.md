@@ -24,12 +24,19 @@ $ git config --global user.email "YourEmail@example.com"
 
 
 ### 자주쓰는 git 명령어
+- commit 내역 확인
 $ git log
-    - commit 내역 확인
+
+- 현재 파일 변경 상태 확인
 $ git status
-    - 현재 파일 변경 상태 확인
+
+- 파일 변경 내용 확인
 $ git diff
-    - 파일 변경 내용 확인
+
+- 특정 파일의 수정 내용을 마지막 커밋으로 되돌리기
+$ git restore [파일경로]
+ex. git restore notebooks/eda_ink.ipynb
+(주의) 수정한 내용이 사라집니다
 
 
 ### git 규칙
