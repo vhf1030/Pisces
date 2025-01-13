@@ -25,7 +25,7 @@ sys.path.append(current_dir)  # 루트 디렉터리 경로 추가
 import requests
 import pandas as pd
 import time
-from src.crawling.collect_ikh import get_price_data
+from crawling.ikh_item_price import get_price_data
 from data.data_source_item_mapping import IKH_MAPPING
 
 
