@@ -29,8 +29,8 @@ def get_store_item(store_id, store=None):
         
         result.append(tmp)
     return result
-
 # get_store_item("0000001155")
+
 def run_fetch():
     all_data = []
     # for query in IKH_MAPPING["market"]:
@@ -50,15 +50,3 @@ def run_fetch():
     result.to_csv(output_file, index=False, encoding="utf-8")
 
 # run_fetch()
-
-    
-    
-
-
-# TODO: 
-# 1. 마켓별 품목 확인
-# 2. 품목별 공통되는 마켓 수 확인
-# 3. 해당하는 마켓이 많은 품목에 대해 프로젝트 진행
-
-
-
