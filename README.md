@@ -35,7 +35,7 @@ $ git diff
 
 - 특정 파일의 수정 내용을 마지막 커밋으로 되돌리기
 $ git restore [파일경로]
-ex. git restore notebooks/eda_ink.ipynb
+ex. git restore notebooks/eda_ikh.ipynb
 (주의) 수정한 내용이 사라집니다
 
 
