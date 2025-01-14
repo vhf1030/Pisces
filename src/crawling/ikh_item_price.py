@@ -57,5 +57,7 @@ def run_fetch():
     # today
 
     # 파일로 저장
-    output_file = f"data/raw/ikh_price_{today}.csv"
+    output_file = f"data/raw/ikh_item_price_{today}.csv"
     df.to_csv(output_file, index=False, encoding="utf-8")
+
+# run_fetch()
