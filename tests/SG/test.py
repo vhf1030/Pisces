@@ -40,3 +40,16 @@ plt.rcParams["axes.unicode_minus"] = False
 # # TODO: 시장별로 데이터가 많은 품목 확인 필요
 # #  - 연어 1kg의 경우 노량진, 가락, 영등포, 자갈치의 데이터가 없음 - 만약 한다면, 100g로 진행하는 방안
 # #  -  
+
+import requests
+from configs.api_keys import api_key
+
+test = requests.get(
+    url="http://apis.data.go.kr/B553931/service/OceansNemoService2/getOceansNemo2",
+    params={
+        'ServiceKey': api_key
+    }
+)
+
+test.text
+
