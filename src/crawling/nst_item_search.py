@@ -240,4 +240,4 @@ def run_crawling():
         df.to_csv(output_file, index=False, encoding="utf-8")
         
         
-run_crawling()
+# run_crawling()
