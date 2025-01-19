@@ -7,6 +7,7 @@ import requests
 import pandas as pd
 import time
 from data.data_source_item_mapping import IKH_MAPPING
+print(IKH_MAPPING)
 
 
 def get_price_data(item_id, market_code, period=1):
