@@ -41,8 +41,8 @@ def fill_missing_dates(data, group_cols, date_col, target_cols):
 # Lag Feature 생성 함수
 def create_lag_features(data, lags, group_cols, target_col):
     """
-    Lag Features 생성.
-
+    Lag Features 생성 (정확한 날짜 차이를 고려).
+    
     :param data: DataFrame
     :param lags: List[int], 시점 차이 (Lag) 리스트
     :param group_cols: List[str], 그룹화 기준 컬럼
@@ -53,13 +53,18 @@ def create_lag_features(data, lags, group_cols, target_col):
 
     for lag in lags:
         lag_col_name = f"{target_col}_lag_{lag}"
-
-        # 그룹화 및 Lag Feature 생성
-        data[lag_col_name] = (
-            data.groupby(group_cols, group_keys=False)
-            .apply(lambda group: group[target_col].shift(lag))
-            .reset_index(drop=True)
-        )
+        
+        # Lag Feature 생성 (날짜 조건 확인)
+        data[lag_col_name] = data.groupby(group_cols, group_keys=False).apply(
+            lambda group: group.apply(
+                lambda row: group.loc[
+                    group["priceDate"] == row["priceDate"] - pd.Timedelta(days=lag),
+                    target_col
+                ].values[0] if not group.loc[
+                    group["priceDate"] == row["priceDate"] - pd.Timedelta(days=lag)
+                ].empty else None, axis=1
+            )
+        ).reset_index(drop=True)
 
     return data
 
