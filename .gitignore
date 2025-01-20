@@ -7,6 +7,9 @@ __pycache__/
 # 모델 제외
 *.pkl
 
+# 로그 파일 제외
+*.log
+
 # 주피터 노트북 체크포인트 파일 제외
 .ipynb_checkpoints/
 
