@@ -74,7 +74,7 @@ df_with_lags = create_lag_features(df, lags, group_cols, target_col)
 df_with_lags.info()
 
 output_file = f"data/processed/item_price_lag.csv"
-df_with_lags.to_csv(output_file, index=False, encoding="utf-8")
+# df_with_lags.to_csv(output_file, index=False, encoding="utf-8")
 
 
 # 누락 날짜 처리 (가장 최근의 가격으로)
@@ -86,4 +86,4 @@ df_with_lags_filled = create_lag_features(df_filled, lags, group_cols, target_co
 df_with_lags_filled.info()
 
 output_file = f"data/processed/item_price_lag_filled.csv"
-df_with_lags_filled.to_csv(output_file, index=False, encoding="utf-8")
+# df_with_lags_filled.to_csv(output_file, index=False, encoding="utf-8")
