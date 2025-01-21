@@ -30,3 +30,22 @@ def create_pivot_table(df, index_cols, columns_col, values_col):
     return pivot_df
 
 
+def create_aggregate_table(df, index_cols, agg_funcs):
+    """
+    데이터 집계 테이블 생성 함수.
+
+    Args:
+        df (pd.DataFrame): 입력 데이터프레임.
+        index_cols (list): 기준 컬럼 리스트 (그룹화할 컬럼).
+        agg_funcs (dict): 각 컬럼에 대해 적용할 집계 함수의 딕셔너리.
+
+    Returns:
+        pd.DataFrame: 생성된 집계 테이블.
+    """
+    # 데이터 그룹화 및 집계
+    agg_df = df.groupby(index_cols).agg(agg_funcs)
+
+    # 인덱스 초기화
+    agg_df.reset_index(inplace=True)
+
+    return agg_df
