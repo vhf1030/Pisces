@@ -49,3 +49,29 @@ def create_aggregate_table(df, index_cols, agg_funcs):
     agg_df.reset_index(inplace=True)
 
     return agg_df
+
+
+def find_missing_dates(df, date_col):
+    """
+    데이터프레임에서 누락된 날짜를 확인하는 함수.
+
+    Args:
+        df (pd.DataFrame): 입력 데이터프레임.
+        date_col (str): 날짜를 나타내는 컬럼명.
+
+    Returns:
+        pd.DatetimeIndex: 누락된 날짜 목록.
+    """
+    # 날짜 컬럼이 datetime 형식인지 확인
+    if not pd.api.types.is_datetime64_any_dtype(df[date_col]):
+        df[date_col] = pd.to_datetime(df[date_col])
+
+    # 날짜 범위 생성
+    full_date_range = pd.date_range(start=df[date_col].min(), end=df[date_col].max())
+
+    # 존재하는 날짜와 전체 범위 비교
+    existing_dates = pd.to_datetime(df[date_col]).sort_values().unique()
+    missing_dates = full_date_range.difference(existing_dates)
+
+    return missing_dates
+
