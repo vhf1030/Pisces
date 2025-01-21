@@ -75,3 +75,39 @@ def find_missing_dates(df, date_col):
 
     return missing_dates
 
+
+def fill_missing_dates_and_forward_fill(df, date_col):
+    """
+    누락된 날짜를 추가하고, 결측치를 이전 날짜의 가장 최근 값으로 채우는 함수.
+
+    Args:
+        df (pd.DataFrame): 입력 데이터프레임.
+        date_col (str): 날짜 컬럼명.
+
+    Returns:
+        pd.DataFrame: 누락된 날짜가 추가되고 결측치가 채워진 데이터프레임.
+    """
+    df_tmp = df.copy()
+    
+    # 날짜 컬럼을 datetime 형식으로 변환
+    df_tmp[date_col] = pd.to_datetime(df_tmp[date_col])
+    
+    # 전체 날짜 범위 생성
+    full_date_range = pd.date_range(start=df_tmp[date_col].min(), end=df_tmp[date_col].max())
+    
+    # 날짜를 인덱스로 설정
+    df_tmp.set_index(date_col, inplace=True)
+    
+    # 누락된 날짜를 추가
+    df_tmp = df_tmp.reindex(full_date_range)
+    
+    # 인덱스를 다시 날짜로 설정
+    df_tmp.index.name = date_col
+    
+    # 결측치를 이전 값으로 채우기
+    df_tmp.ffill(inplace=True)
+    
+    # 인덱스를 다시 컬럼으로 변환
+    df_tmp.reset_index(inplace=True)
+    
+    return df_tmp
