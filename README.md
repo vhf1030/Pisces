@@ -43,3 +43,6 @@ ex. git restore notebooks/eda_ikh.ipynb
 1. git pull 진행 후 작업
 - merge 메세지가 뜨는 경우 ":q" 입력
 2. 브랜치는 따로 구분하지 않음 - 번거로우니까
+
+### 서버 접속 (교육장 내에서)
+$ ssh wanted-1@192.168.10.96
