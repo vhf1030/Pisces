@@ -111,3 +111,4 @@ def fill_missing_dates_and_forward_fill(df, date_col):
     df_tmp.reset_index(inplace=True)
     
     return df_tmp
+
