@@ -9,10 +9,12 @@ __pycache__/
 
 # 로그 파일 제외
 *.log
+catboost_info/
 
 # 주피터 노트북 체크포인트 파일 제외
 .ipynb_checkpoints/
 
 # 보안 및 환경 관련 - API key 등
 configs/
+config
 
