@@ -1,0 +1,109 @@
+기준시장,어종,변수,타임래그,상관관계,P-value,파일명,변수명
+전체평균,광어,KOSPI,136,0.6752,4.25E-211,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",KOSPI
+전체평균,광어,USD/KRW,1,0.6516,4.61E-208,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",USD/KRW
+전체평균,광어,VIX,419,0.4156,2.15E-55,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",VIX
+전체평균,광어,WTI,1,0.7275,6.74E-283,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",WTI
+전체평균,광어,GOLD,314,0.9452,0.00E+00,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",Gold
+전체평균,광어,SILVER,238,0.8391,0.00E+00,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",Silver
+전체평균,광어,MOVE,18,0.6623,3.75E-215,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",MOVE
+전체평균,광어,양식 활광어(대) 가락시장 거래가격,64,0.8214,0.00E+00,d활광어(양식)가격_가락,광어_대
+전체평균,농어,KOSPI,179,0.6396,8.66E-178,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",KOSPI
+전체평균,농어,USD/KRW,1,0.7961,0.00E+00,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",USD/KRW
+전체평균,농어,VIX,391,0.4587,5.15E-70,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",VIX
+전체평균,농어,WTI,100,0.7297,4.63E-269,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",WTI
+전체평균,농어,GOLD,361,0.9192,0.00E+00,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",Gold
+전체평균,농어,SILVER,290,0.8386,0.00E+00,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",Silver
+전체평균,농어,MOVE,1,0.7931,0.00E+00,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",MOVE
+전체평균,대게,KOSPI,148,0.4325,1.44E-73,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",KOSPI
+전체평균,대게,USD/KRW,90,0.3080,4.00E-37,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",USD/KRW
+전체평균,대게,VIX,-,-,-,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",VIX
+전체평균,대게,WTI,91,0.2793,1.51E-30,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",WTI
+전체평균,대게,GOLD,177,0.4844,1.76E-91,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",Gold
+전체평균,대게,SILVER,117,0.5213,2.93E-112,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",Silver
+전체평균,대게,MOVE,-,-,-,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",MOVE
+전체평균,방어,KOSPI,282,-7527.0000,5.09E-139,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",KOSPI
+전체평균,방어,USD/KRW,387,0.8947,2.20E-229,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",USD/KRW
+전체평균,방어,VIX,133,0.6488,2.95E-109,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",VIX
+전체평균,방어,WTI,520,0.8073,2.79E-120,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",WTI
+전체평균,방어,GOLD,1,0.8214,1.14E-254,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",Gold
+전체평균,방어,SILVER,1,0.4584,5.11E-55,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",Silver
+전체평균,방어,MOVE,487,0.8961,8.42E-196,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",MOVE
+전체평균,방어,자연산 활방어(대) 가락시장 거래가격,5,336.0000,7.75E-30,d활방어(자연산)가격_가락,방어(자연)_대
+전체평균,연어,KOSPI,329,0.6088,1.15E-141,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",KOSPI
+전체평균,연어,USD/KRW,1,0.8976,0.00E+00,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",USD/KRW
+전체평균,연어,VIX,529,0.4811,6.52E-70,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",VIX
+전체평균,연어,WTI,199,0.6898,4.98E-215,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",WTI
+전체평균,연어,GOLD,633,0.9212,0.00E+00,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",Gold
+전체평균,연어,SILVER,400,0.8022,4.57E-297,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",Silver
+전체평균,연어,MOVE,71,0.8332,0.00E+00,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",MOVE
+전체평균,연어,노르웨이 활연어 거래량,374,0.2386,1.29E-29,d노르웨이활연어(양식)물량&가격_주별동일,활연어_거래량(톤)
+전체평균,연어,노르웨이 활연어 가격,32,0.7991,0.00E+00,d노르웨이활연어(양식)물량&가격_주별동일,활연어_가격(NOK/kg)
+전체평균,우럭,KOSPI,155,0.6998,1.24E-31,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",KOSPI
+전체평균,우럭,USD/KRW,121,0.6977,2.51E-36,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",USD/KRW
+전체평균,우럭,VIX,38,0.4799,5.26E-20,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",VIX
+전체평균,우럭,WTI,14,-0.6190,4.33E-38,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",WTI
+전체평균,우럭,GOLD,146,0.8512,1.53E-61,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",Gold
+전체평균,우럭,SILVER,125,0.8526,6.69E-68,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",Silver
+전체평균,우럭,MOVE,-,-,-,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",MOVE
+전체평균,참돔,KOSPI,438,0.6132,4.55E-133,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",KOSPI
+전체평균,참돔,USD/KRW,11,0.7644,0.00E+00,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",USD/KRW
+전체평균,참돔,VIX,-,-,-,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",VIX
+전체평균,참돔,WTI,150,0.7353,7.45E-267,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",WTI
+전체평균,참돔,GOLD,-,-,-,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",Gold
+전체평균,참돔,SILVER,-,-,-,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",Silver
+전체평균,참돔,MOVE,201,0.7849, 2.6894e-317,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",MOVE
+전체평균,참돔,양식 활참돔(대) 가락시장 거래가격,1,0.5235,4.66E-144,d활참돔(양식)가격_가락,참돔_대
+가락시장,광어,KOSPI,109,0.6664,3.77E-207,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",KOSPI
+가락시장,광어,USD/KRW,1,0.7022,2.95E-255,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",USD/KRW
+가락시장,광어,VIX,415,0.3922,3.76E-49,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",VIX
+가락시장,광어,WTI,1,0.6975,1.56E-250,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",WTI
+가락시장,광어,GOLD,231,0.9272,0.00E+00,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",Gold
+가락시장,광어,SILVER,159,0.8320,0.00E+00,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",Silver
+가락시장,광어,MOVE,16,0.7073,0.00E+00,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",MOVE
+가락시장,광어,양식 활광어(대) 가락시장 거래가격,57,0.7704,0.00E+00,d활광어(양식)가격_가락,광어_대
+가락시장,농어,KOSPI,187,0.6518,7.42E-186,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",KOSPI
+가락시장,농어,USD/KRW,1,0.8014,0.00E+00,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",USD/KRW
+가락시장,농어,VIX,419,0.4704,1.73E-72,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",VIX
+가락시장,농어,WTI,1,0.6864,1.54E-239,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",WTI
+가락시장,농어,GOLD,396,0.9373,0.00E+00,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",Gold
+가락시장,농어,SILVER,290,0.8400,0.00E+00,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",Silver
+가락시장,농어,MOVE,2,0.7991,0.00E+00,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",MOVE
+가락시장,대게,KOSPI,150,0.4225,6.60E-69,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",KOSPI
+가락시장,대게,USD/KRW,94,0.2685,3.30E-28,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",USD/KRW
+가락시장,대게,VIX,225,0.3604,5.14E-47,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",VIX
+가락시장,대게,WTI,1,0.2775,1.00E-31,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",WTI
+가락시장,대게,GOLD,174,0.4204,3.56E-67,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",Gold
+가락시장,대게,SILVER,120,0.4696,1.98E-08,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",Silver
+가락시장,대게,MOVE,1,0.3153,6.11E-04,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",MOVE
+가락시장,방어,KOSPI,217,-0.6438,2.77E-121,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",KOSPI
+가락시장,방어,USD/KRW,1,0.8111,5.26E-241,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",USD/KRW
+가락시장,방어,VIX,172,-0.3499,4.64E-26,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",VIX
+가락시장,방어,WTI,101,0.6142,3.30E-97,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",WTI
+가락시장,방어,GOLD,3,0.4217,1.89E-45,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",Gold
+가락시장,방어,SILVER,71,-0.2139,2.29E-01,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",Silver
+가락시장,방어,MOVE,1,0.7713,2.57E-203,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",MOVE
+가락시장,방어,자연산 활방어(대) 가락시장 거래가격,33,0.2831,1.52E-20,d활방어(자연산)가격_가락,방어(자연)_대
+가락시장,연어,KOSPI,315,0.6868,2.34E-196,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",KOSPI
+가락시장,연어,USD/KRW,1,0.8383,0.00E+00,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",USD/KRW
+가락시장,연어,VIX,504,0.5604,2.55E-101,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",VIX
+가락시장,연어,WTI,112,0.7035,3.04E-242,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",WTI
+가락시장,연어,GOLD,471,0.8716,0.00E+00,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",Gold
+가락시장,연어,SILVER,397,0.8541,0.00E+00,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",Silver
+가락시장,연어,MOVE,4,0.8459,0.00E+00,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",MOVE
+가락시장,연어,노르웨이 활연어 거래량,287,0.2334,1.86E-29,d노르웨이활연어(양식)물량&가격_주별동일,활연어_거래량(톤)
+가락시장,연어,노르웨이 활연어 가격,25,0.7604,0.00E+00,d노르웨이활연어(양식)물량&가격_주별동일,활연어_가격(NOK/kg)
+가락시장,우럭,KOSPI,170,0.5588,1.15E-16,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",KOSPI
+가락시장,우럭,USD/KRW,285,0.8813,3.75E-24,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",USD/KRW
+가락시장,우럭,VIX,50,0.3785,7.40E-12,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",VIX
+가락시장,우럭,WTI,228,-0.7923,8.27E-29,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",WTI
+가락시장,우럭,GOLD,216,0.7825,3.52E-30,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",Gold
+가락시장,우럭,SILVER,125,0.5334,2.18E-18,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",Silver
+가락시장,우럭,MOVE,250,0.5886,3.24E-11,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",MOVE
+가락시장,참돔,KOSPI,306,0.5895,6.81E-133,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",KOSPI
+가락시장,참돔,USD/KRW,1,0.8286,0.00E+00,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",USD/KRW
+가락시장,참돔,VIX,419,0.3656,2.38E-42,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",VIX
+가락시장,참돔,WTI,143,0.7205,2.25E-252,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",WTI
+가락시장,참돔,GOLD,411,0.8998,0.00E+00,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",Gold
+가락시장,참돔,SILVER,331,0.7883,2.12E-294,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",Silver
+가락시장,참돔,MOVE,3,0.8093,0.00E+00,"d경제지표(KOSPI, 원달러, WTI, VIX, 금, 은, MOVE)",MOVE
+가락시장,참돔,양식 활참돔(대) 가락시장 거래가격,91,0.4598,1.08E-102,d활참돔(양식)가격_가락,참돔_대
