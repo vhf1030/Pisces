@@ -46,3 +46,9 @@ ex. git restore notebooks/eda_ikh.ipynb
 
 ### 서버 접속 (교육장 내에서)
 $ ssh wanted-1@192.168.10.96
+
+### 글로벌 세팅 없이 커밋 / 푸시 하는 방법 (서버에서 작업할 때 필요)
+git -c user.name="YourName" -c user.email="YourEmail@example.com" add .
+git -c user.name="YourName" -c user.email="YourEmail@example.com" commit -m "커밋 메시지"
+git -c user.name="YourName" -c user.email="YourEmail@example.com" push
+
