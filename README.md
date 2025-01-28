@@ -19,6 +19,7 @@
 ### git setting
 $ git clone https://github.com/vhf1030/ml_pisces.git
 
+(주의) 개인 장비로 작업할 때에만 설정합니다
 $ git config --global user.name "YourName"
 $ git config --global user.email "YourEmail@example.com"
 
@@ -52,3 +53,17 @@ git -c user.name="YourName" -c user.email="YourEmail@example.com" add .
 git -c user.name="YourName" -c user.email="YourEmail@example.com" commit -m "커밋 메시지"
 git -c user.name="YourName" -c user.email="YourEmail@example.com" push
 
+
+
+
+# TODO
+- 1차 개발
+    - 모델 학습에는 전체 마켓의 피쳐가 사용되어야 함
+    - 최종 데이터 생성 스크립트 코드 저장
+    - 데이터 파일 및 모델 파일 생성
+    - 서비스 연동
+
+- 2차 개발
+    - DB 생성 및 연동
+    - DB 데이터 전처리 프로세스 개발
+    - 데이터 수집 API 개발 및 연동
