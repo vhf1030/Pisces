@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 
-# 복사할 파일 목록
+# 복사할 파일 목록  # 240129 진행
 fish_list = ["광어", "농어", "대게", "방어", "우럭", "참돔"]
 file_suffix = "_price_features_notnull.csv"
 ori_dir = "data/features/final_oneHot/"
