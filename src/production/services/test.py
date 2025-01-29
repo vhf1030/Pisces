@@ -5,7 +5,7 @@ current_dir = os.getcwd()
 sys.path.append(current_dir)  # 루트 디렉터리 경로 추가  # .py
 
 from src.production.services.predict import SeafoodPricePredictor
-
+import pandas as pd
 
 # model_paths = {
 #     "농어": "path/to/농어_model.joblib",
@@ -22,19 +22,13 @@ from src.production.services.predict import SeafoodPricePredictor
 predictor = SeafoodPricePredictor()
 predictor.model['광어']
 predictor.data['광어']
+date, fish, market = "2024-12-15", "광어", "노량진시장"
+predictor.predict(date, fish, market)
 
-predictor.predict("2024-12-25")
+fish_list = ["광어", "농어", "대게", "방어", "우럭", "참돔", "연어"]
+for fish in fish_list:
+    print(predictor.predict(date, fish, market))
 
+for market in ["가락시장", "강서농수산물시장", "구리농수산물시장", "노량진시장", "마포농수산물시장", "부산민락어민활어직판장", "소래포구종합어시장", "수원농수산물시장", "안양평촌농수산물시장", "인천종합연안부두어시장"]:
+    print(predictor.predict(date, fish, market))
 
-
-# # 특정 어종, 날짜, 시장에 대한 예측
-# result = predictor.predict("2025-01-25", market="Market 1", seafood="농어")
-# print("예측 결과:", result)
-
-# # 특정 시장과 날짜에 대한 전체 어종 예측
-# result = predictor.predict("2025-01-25", market="Market 1")
-# print("시장별 전체 어종 예측 결과:", result)
-
-# # 특정 날짜에 대한 전체 시장, 전체 어종 예측
-# result = predictor.predict("2025-01-25")
-# print("전체 예측 결과:", result)

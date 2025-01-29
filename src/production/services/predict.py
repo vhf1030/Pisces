@@ -24,7 +24,9 @@ class SeafoodPricePredictor:
         """
         data_dict = {}
         for fish in self.fish_list:
-            data_dict[fish] = pd.read_csv(self.data_path + fish + '_data.csv')
+            data = pd.read_csv(self.data_path + fish + '_data.csv')
+            data['date'] = pd.to_datetime(data['date'])
+            data_dict[fish] = data
 
         return data_dict
 
@@ -39,54 +41,27 @@ class SeafoodPricePredictor:
 
         return model_dict
 
-    def predict(self, date, market=None, fish=None, num_days=1):
-        # !!TODO!!
+    def predict(self, date, fish, market):
         """
         입력된 파라미터를 기반으로 수산물 가격을 예측합니다.
         """
-        if fish and fish not in self.model:
-            raise Exception(f"{fish}에 대한 모델이 존재하지 않습니다.")
 
-        if fish:
-            model = self.model[fish]
-            data = self.data[fish].copy()
-            # feature_names = [col for col in data.columns if col not in ['date', 'avgPrice']]
-            feature_names = model.estimators_[0].feature_name_
-        else:
-            results = {}
-            for fish_name in self.model.keys():
-                results[fish_name] = self._predict_for_fish(date, fish_name, num_days)
-            return {"date": date, "market": market, "predictions": results}
-
-        return self._predict_for_fish(date, fish, num_days)
-
-    def _predict_for_fish(self, start_date, fish, num_days):
-        """
-        특정 어종에 대한 시계열 예측을 수행합니다.
-        """
         model = self.model[fish]
         data = self.data[fish].copy()
-        feature_names = [col for col in data.columns if col not in ['date', 'avgPrice']]
+        # feature_names = [col for col in data.columns if col not in ['date', 'avgPrice']]
+        feature_names = model.estimators_[0].feature_name_
+        X = data[feature_names]
 
-        start_date = pd.Timestamp(start_date)
-        rolling_data = data.copy()
-        predictions = []
+        input_data = X[
+            (data['date'] == pd.Timestamp(date)) &
+            (data['m_' + market] == 1)
+        ]
+        model_lag = 0
+        if input_data.empty:
+            print(f"데이터가 부족하여 {date}를 예측할 수 없습니다.")
+            return
+        
+        predicted_price = model.predict(input_data)[0][model_lag]
 
-        for i in range(num_days):
-            target_date = start_date + pd.Timedelta(days=i)
-            previous_date = target_date - pd.Timedelta(days=1)
+        return {"date": date, "fish": fish, "market": market, "predictions": predicted_price}
 
-            input_data = rolling_data[rolling_data['date'] == previous_date]
-            if input_data.empty:
-                print(f"데이터가 부족하여 {target_date}를 예측할 수 없습니다.")
-                break
-
-            X = input_data[feature_names]
-            predicted_price = model.predict(X)[0]
-
-            predictions.append({'Date': target_date.strftime('%Y-%m-%d'), 'Predicted_Price': predicted_price})
-
-            new_row = {'date': target_date, 'avgPrice': predicted_price}
-            rolling_data = pd.concat([rolling_data, pd.DataFrame([new_row])], ignore_index=True)
-
-        return predictions
