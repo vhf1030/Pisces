@@ -12,6 +12,7 @@ class SeafoodPricePredictor:
         """
         # self.data_preprocessor = DataPreprocessor()  # todo
         self.fish_list = ["광어", "농어", "대게", "방어", "우럭", "참돔", "연어"]
+        self.market_list = ["가락시장", "강서농수산물시장", "구리농수산물시장", "노량진시장", "마포농수산물시장", "부산민락어민활어직판장", "소래포구종합어시장", "수원농수산물시장", "안양평촌농수산물시장", "인천종합연안부두어시장"]
         self.data_path = "src/production/data/"
         self.model_path = "src/production/model/"
         self.data = self.load_data()
@@ -65,3 +66,23 @@ class SeafoodPricePredictor:
 
         return {"date": date, "fish": fish, "market": market, "predictions": predicted_price}
 
+    def predict_fish(self, date, fish):
+        '''
+        특정 어종의 시장별 가격을 예측
+        '''
+        result = {}
+        for market in self.market_list:
+            result[market] = self.predict(date, fish, market)
+
+        return result
+    
+
+    def predict_market(self, date, market):
+        '''
+        특정 시장의 어종별 가격을 예측
+        '''
+        result = {}
+        for fish in self.fish_list:
+            result[fish] = self.predict(date, fish, market)
+
+        return result
