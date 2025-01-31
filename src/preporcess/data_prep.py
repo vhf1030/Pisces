@@ -79,6 +79,46 @@ def prep_trend(
     search_trend_pivot.to_csv(out_path, index=False)
 
 
+def prep_forecast(
+    input_path_pattern="data/raw/forecast_1525/forecast_*.csv",
+    out_path="data/prep_0131/forecast_agg.csv"
+):
+    file_list = glob.glob(input_path_pattern)
+    df_list = [pd.read_csv(file_path, encoding='euc-kr') for file_path in file_list]
+    df = pd.concat(df_list, ignore_index=True)
+    column_mapping = {
+        '풍속(m/s)': '풍속',
+        '풍향(deg)': '풍향',
+        'GUST풍속(m/s)': 'GUST풍속',
+        '현지기압(hPa)': '현지기압',
+        '습도(%)': '습도',
+        '기온(°C)': '기온',
+        '수온(°C)': '수온',
+        '최대파고(m)': '최대파고',
+        '유의파고(m)': '유의파고',
+        '평균파고(m)': '평균파고',
+        '파주기(sec)': '파주기',
+        '파향(deg)': '파향'
+    }
+    df_tmp = df.rename(columns=column_mapping)
+    df_tmp['일시'] = pd.to_datetime(df_tmp['일시']).dt.date
+    agg_funcs = {
+        '풍속': 'mean',                # 평균 풍속
+        'GUST풍속': 'mean',           # 평균 돌풍 풍속
+        '현지기압': 'mean',            # 평균 현지 기압
+        '습도': 'mean',                  # 평균 습도
+        '기온': 'mean',               # 평균 기온
+        '수온': 'mean',         # 평균 수온
+        '최대파고': 'max',            # 최대 파고
+        '유의파고': 'mean',   # 평균 유의 파고
+        '평균파고': 'mean',       # 평균 파고
+        '파주기': 'mean',               # 평균 파주기
+    }
+    forecast_agg = create_aggregate_table(df_tmp, index_cols=['지점', '일시'], agg_funcs=agg_funcs)
+    forecast_agg.to_csv(out_path, index=False)
+
+
+
 
 # # 시장 데이터 원핫 인코딩
 # # 시장별 더미변수 생성 (0, 1로 인코딩)
