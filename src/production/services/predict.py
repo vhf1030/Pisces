@@ -10,7 +10,7 @@ class SeafoodPricePredictor:
         """
         어종별 머신러닝 모델 경로와 데이터 경로를 받아 초기화합니다.
         """
-        # self.data_preprocessor = DataPreprocessor()  # todo
+        # self.data_preprocessor = DataPreprocessor()  # 보류
         self.fish_list = ["광어", "농어", "대게", "방어", "우럭", "참돔", "연어"]
         self.market_list = ["가락시장", "강서농수산물시장", "구리농수산물시장", "노량진시장", "마포농수산물시장", "부산민락어민활어직판장", "소래포구종합어시장", "수원농수산물시장", "안양평촌농수산물시장", "인천종합연안부두어시장"]
         self.data_path = "src/production/data/"
@@ -46,7 +46,6 @@ class SeafoodPricePredictor:
         """
         입력된 파라미터를 기반으로 수산물 가격을 예측합니다.
         """
-
         model = self.model[fish]
         data = self.data[fish].copy()
         # feature_names = [col for col in data.columns if col not in ['date', 'avgPrice']]
@@ -76,7 +75,6 @@ class SeafoodPricePredictor:
 
         return result
     
-
     def predict_market(self, date, market):
         '''
         특정 시장의 어종별 가격을 예측
