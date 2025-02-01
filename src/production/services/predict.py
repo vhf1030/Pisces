@@ -56,12 +56,20 @@ class SeafoodPricePredictor:
             (data['date'] == pd.Timestamp(date)) &
             (data['m_' + market] == 1)
         ]
-        model_lag = 0
+        date_difference = 0
         if input_data.empty:
-            print(f"데이터가 부족하여 {date}를 예측할 수 없습니다.")
-            return
+            last_date = data['date'].max()
+            date_difference = (pd.Timestamp(date) - pd.Timestamp(last_date)).days
+            # print(last_date, date_difference)
+            input_data = X[
+                (data['date'] == last_date) &
+                (data['m_' + market] == 1)
+            ]
+            if date_difference >= 28:
+                print(f"데이터가 부족하여 {date}를 예측할 수 없습니다.")
+                return
         
-        predicted_price = model.predict(input_data)[0][model_lag]
+        predicted_price = model.predict(input_data)[0][date_difference]
 
         return {"date": date, "fish": fish, "market": market, "predictions": predicted_price}
 

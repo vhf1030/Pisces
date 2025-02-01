@@ -22,7 +22,7 @@ import pandas as pd
 predictor = SeafoodPricePredictor()
 predictor.model['광어']
 predictor.data['광어']
-date, fish, market = "2024-12-15", "광어", "노량진시장"
+date, fish, market = "2025-01-15", "광어", "노량진시장"
 predictor.predict(date, fish, market)
 
 fish_list = ["광어", "농어", "대게", "방어", "우럭", "참돔", "연어"]
