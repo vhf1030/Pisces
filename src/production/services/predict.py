@@ -71,6 +71,7 @@ class SeafoodPricePredictor:
         
         if input_data.empty:
             print(f"데이터가 부족하여 {market} {date} 를 예측할 수 없습니다.")
+            return
         
         predicted_price = model.predict(input_data)[0][date_difference]
 
