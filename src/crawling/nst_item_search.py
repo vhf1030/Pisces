@@ -92,10 +92,16 @@ def input_keyword(driver, baseline_keyword: str, input_keyword: str):
         field_id = f"item_keyword{i+1}"
         input_box = driver.find_element(By.ID, field_id)
         input_box.send_keys(modifier_key + "A")
+        time.sleep(.1)
+        input_box.send_keys(modifier_key + "A")
+        time.sleep(.1)
         input_box.send_keys(query)
         field_id2 = f"item_sub_keyword{i+1}_1"
         input_box2 = driver.find_element(By.ID, field_id2)
         input_box2.send_keys(modifier_key + "A")
+        time.sleep(.1)
+        input_box2.send_keys(modifier_key + "A")
+        time.sleep(.1)
         input_box2.send_keys(query)
         # print(f"입력 완료: {field_id} -> {keyword}")
 
@@ -157,9 +163,9 @@ def run_fetch(keyword, base_keyword):
     time.sleep(1)
 
     # 종료 연월 설정
-    select_dropdown_option(driver, "endYear", "//div[@id='endYearDiv']//li[contains(@class, '_item_2024')]/a")
-    select_dropdown_option(driver, "endMonth", "//div[@id='endMonthDiv']//li[contains(@class, '_item_12')]/a")
-    select_dropdown_option(driver, "endDay", "//div[@id='endDayDiv']//li[contains(@class, '_item_31')]/a")
+    select_dropdown_option(driver, "endYear", "//div[@id='endYearDiv']//li[contains(@class, '_item_2025')]/a")
+    select_dropdown_option(driver, "endMonth", "//div[@id='endMonthDiv']//li[contains(@class, '_item_01')]/a")
+    select_dropdown_option(driver, "endDay", "//div[@id='endDayDiv']//li[contains(@class, '_item_29')]/a")
     time.sleep(1)
 
     # 연령 체크박스 정보
@@ -239,5 +245,6 @@ def run_crawling():
         output_file = f"data/raw/nst_{item}_trend_{today}.csv"
         df.to_csv(output_file, index=False, encoding="utf-8")
         
-        
-# run_crawling()
+
+if __name__ == "__main__":
+    run_crawling()

@@ -61,4 +61,7 @@ def run_fetch():
     output_file = f"data/raw/ikh_item_price_{today}.csv"
     df.to_csv(output_file, index=False, encoding="utf-8")
 
-# run_fetch()
+
+if __name__ == "__main__":
+    run_fetch()
+    

@@ -19,6 +19,7 @@
 ### git setting
 $ git clone https://github.com/vhf1030/ml_pisces.git
 
+(주의) 개인 장비로 작업할 때에만 설정합니다
 $ git config --global user.name "YourName"
 $ git config --global user.email "YourEmail@example.com"
 
@@ -46,3 +47,25 @@ ex. git restore notebooks/eda_ikh.ipynb
 
 ### 서버 접속 (교육장 내에서)
 $ ssh wanted-1@192.168.10.96
+
+### 글로벌 세팅 없이 커밋 / 푸시 하는 방법 (서버에서 작업할 때 필요)
+git -c user.name="YourName" -c user.email="YourEmail@example.com" add .
+git -c user.name="YourName" -c user.email="YourEmail@example.com" commit -m "커밋 메시지"
+git -c user.name="YourName" -c user.email="YourEmail@example.com" push
+
+
+
+
+# TODO
+- 1차 개발
+    - 서비스용 스크립트 디렉터리 관리 - EDA와 구분
+    - 데이터 수집 및 모델 성능 평가 내용 정리
+    - 모델 학습에는 전체 마켓의 피쳐가 사용되어야 함 - 노량진 시장 평균가격으로 전처리
+    - 최종 데이터 생성 스크립트 코드 저장
+    - 데이터 파일 및 모델 파일 생성 - pkl 파일 생략 방안 고려
+    - 서비스 연동
+
+- 2차 개발
+    - DB 생성 및 연동
+    - DB 데이터 전처리 프로세스 개발
+    - 데이터 수집 API 개발 및 연동
