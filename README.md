@@ -54,17 +54,17 @@ git -c user.name="YourName" -c user.email="YourEmail@example.com" commit -m "커
 git -c user.name="YourName" -c user.email="YourEmail@example.com" push
 
 
+서비스 개발: https://github.com/vhf1030/pisces
 
-
-# TODO
 - 1차 개발
     - 서비스용 스크립트 디렉터리 관리 - EDA와 구분
     - 데이터 수집 및 모델 성능 평가 내용 정리
     - 모델 학습에는 전체 마켓의 피쳐가 사용되어야 함 - 노량진 시장 평균가격으로 전처리
     - 최종 데이터 생성 스크립트 코드 저장
-    - 데이터 파일 및 모델 파일 생성 - pkl 파일 생략 방안 고려
+    - 데이터 파일 및 모델 파일 생성 - pkl 파일 생략
     - 서비스 연동
 
+# TODO
 - 2차 개발
     - DB 생성 및 연동
     - DB 데이터 전처리 프로세스 개발
