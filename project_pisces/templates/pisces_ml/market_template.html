@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-4">시장별 수산물 가격 예측</h1>
+
+    <!-- 입력 폼 -->
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="market" class="form-label">시장</label>
+            <select name="market" id="market" class="form-select" required>
+                <option value="" disabled {% if not market %}selected{% endif %}>시장을 선택하세요</option>
+                <option value="가락시장" {% if market == "가락시장" %}selected{% endif %}>가락시장</option>
+                <option value="강서농수산물시장" {% if market == "강서농수산물시장" %}selected{% endif %}>강서농수산물시장</option>
+                <option value="구리농수산물시장" {% if market == "구리농수산물시장" %}selected{% endif %}>구리농수산물시장</option>
+                <option value="노량진시장" {% if market == "노량진시장" %}selected{% endif %}>노량진시장</option>
+                <option value="마포농수산물시장" {% if market == "마포농수산물시장" %}selected{% endif %}>마포농수산물시장</option>
+                <option value="부산민락어민활어직판장" {% if market == "부산민락어민활어직판장" %}selected{% endif %}>부산민락어민활어직판장</option>
+                <option value="소래포구종합어시장" {% if market == "소래포구종합어시장" %}selected{% endif %}>소래포구종합어시장</option>
+                <option value="수원농수산물시장" {% if market == "수원농수산물시장" %}selected{% endif %}>수원농수산물시장</option>
+                <option value="안양평촌농수산물시장" {% if market == "안양평촌농수산물시장" %}selected{% endif %}>안양평촌농수산물시장</option>
+                <option value="인천종합연안부두어시장" {% if market == "인천종합연안부두어시장" %}selected{% endif %}>인천종합연안부두어시장</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="date" class="form-label">날짜</label>
+            <input type="date" name="date" id="date" class="form-control" value="{{ date|default:'' }}" required>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">예측하기</button>
+    </form>
+
+{% if result %}
+    <!-- 결과 출력 -->
+    <div class="result-section mt-5">
+        <h2 class="mb-3">예측 결과</h2>
+
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-hover text-center">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>어종</th>
+                            <th>예측 가격</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for fish, prediction in result.items %}
+                            <tr>
+                                <td>{{ fish }} {% if prediction and prediction.predictions is not None %} ({{ prediction.info.state }}, {{ prediction.info.unit }}) {% endif %}</td>
+                                <td>
+                                    {% if prediction and prediction.predictions is not None %}
+                                        {% load humanize %}
+                                        <strong>{{ prediction.predictions|floatformat:0|intcomma }}원</strong>
+                                    {% else %}
+                                        <span class="text-muted">-</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+
+</div>
+<script>
+    // 오늘 날짜를 기본값으로 설정
+    const dateField = document.getElementById('date');
+    if (!dateField.value) {
+        const today = new Date().toISOString().split('T')[0];
+        dateField.value = today;
+    }
+</script>
+{% endblock %}

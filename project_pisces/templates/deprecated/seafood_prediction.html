@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-4">{{ date }}의 {{ seafood }} 예측 가격</h1>
+    <ul>
+        {% for market, price in prediction.items %}
+        <li>{{ market }}: {{ price }}원</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

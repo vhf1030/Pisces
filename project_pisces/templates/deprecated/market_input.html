@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-4">시장별 수산물 예측 가격</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="market">시장</label>
+            <select name="market" id="market" class="form-select" required>
+                <option value="" disabled selected>시장을 선택하세요</option>
+                <option value="가락시장">가락시장</option>
+                <option value="강서농수산물시장">강서농수산물시장</option>
+                <option value="구리농수산물시장">구리농수산물시장</option>
+                <option value="노량진">노량진</option>
+                <option value="마포농수산물시장">마포농수산물시장</option>
+                <option value="부산민락어민활어직판장">부산민락어민활어직판장</option>
+                <option value="소래포구종합어시장">소래포구종합어시장</option>
+                <option value="수원농수산물시장">수원농수산물시장</option>
+                <option value="안양평촌농수산물시장">안양평촌농수산물시장</option>
+                <option value="인천종합연안부두어시장">인천종합연안부두어시장</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="date">날짜</label>
+            <input type="date" name="date" id="date" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">예측하기</button>
+    </form>
+</div>
+<script>
+    // 오늘 날짜를 기본값으로 설정
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('date').value = today;
+</script>
+{% endblock %}

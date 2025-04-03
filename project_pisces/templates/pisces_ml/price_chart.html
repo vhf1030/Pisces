@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+    <h1 class="mb-4">어종별 시장 가격 시각화</h1>
+
+    <!-- 날짜 선택 폼 -->
+    <form method="GET" class="mb-4">
+        <label for="days">최근 기간 선택 (일)</label>
+        <select name="days" id="days" class="form-select" onchange="this.form.submit()">
+            <option value="7" {% if selected_days == 7 %}selected{% endif %}>최근 7일</option>
+            <option value="14" {% if selected_days == 14 %}selected{% endif %}>최근 14일</option>
+            <option value="30" {% if selected_days == 30 %}selected{% endif %}>최근 30일</option>
+            <option value="90" {% if selected_days == 90 %}selected{% endif %}>최근 90일</option>
+            <option value="365" {% if selected_days == 365 %}selected{% endif %}>최근 1년</option>
+        </select>
+    </form>
+
+    <!-- 그래프 출력 -->
+    <div id="charts">
+        {% for fish in fish_types %}
+            <div class="chart-container mt-4">
+                <h2>{{ fish }} 가격 변동</h2>
+                <canvas id="chart-{{ fish }}"></canvas>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var chartData = JSON.parse('{{ chart_data|escapejs }}');  // 안전하게 JSON 데이터 가져오기
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var colors = ['red', 'blue', 'green', 'orange', 'purple', 'cyan', 'brown', 'black', 'pink'];
+
+        {% for fish in fish_types %}
+            (function() {
+                var fishName = "{{ fish|escapejs }}";
+                var ctx = document.getElementById("chart-" + fishName).getContext("2d");
+
+                var datasets = [];
+                var marketIndex = 0;
+                var fishData = chartData[fishName];
+
+                for (var market in fishData) {
+                    datasets.push({
+                        label: market,
+                        data: fishData[market].prices,
+                        borderColor: colors[marketIndex % colors.length],
+                        fill: false
+                    });
+                    marketIndex++;
+                }
+
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: fishData[Object.keys(fishData)[0]].dates,  // 첫 번째 시장의 날짜를 기준으로
+                        datasets: datasets
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top'
+                            },
+                            title: {
+                                display: true,
+                                text: fishName + " 시장별 가격 변동"
+                            }
+                        },
+                        scales: {
+                            x: { title: { display: true, text: '날짜' } },
+                            y: { title: { display: true, text: '가격 (원)' } }
+                        }
+                    }
+                });
+            })();
+        {% endfor %}
+    });
+</script>
+
+
+{% endblock %}

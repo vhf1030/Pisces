@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">수산물 가격 예측</h1>
+    <form id="predictionForm" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="market" class="form-label">시장</label>
+            <select class="form-select" id="market" name="market" required>
+                <option value="" disabled selected>시장을 선택하세요</option>
+                <option value="가락시장">가락시장</option>
+                <option value="강서농수산물시장">강서농수산물시장</option>
+                <option value="구리농수산물시장">구리농수산물시장</option>
+                <option value="노량진시장">노량진시장</option>
+                <option value="마포농수산물시장">마포농수산물시장</option>
+                <option value="부산민락어민활어직판장">부산민락어민활어직판장</option>
+                <option value="소래포구종합어시장">소래포구종합어시장</option>
+                <option value="수원농수산물시장">수원농수산물시장</option>
+                <option value="안양평촌농수산물시장">안양평촌농수산물시장</option>
+                <option value="인천종합연안부두어시장">인천종합연안부두어시장</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="item" class="form-label">어종</label>
+            <select class="form-select" id="item" name="item" required>
+                <option value="" disabled selected>어종을 선택하세요</option>
+                <option value="농어">농어</option>
+                <option value="광어">광어</option>
+                <option value="대게">대게</option>
+                <option value="연어">연어</option>
+                <option value="우럭">우럭</option>
+                <option value="참돔">참돔</option>
+                <option value="방어">방어</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="date" class="form-label">날짜</label>
+            <input type="date" class="form-control" id="date" name="date" required>
+        </div>
+        <button type="submit" class="btn btn-primary">예측하기</button>
+    </form>
+    <div id="result" class="mt-4 alert alert-info" style="display: none;"></div>
+</div>
+
+<script>
+    // 오늘 날짜를 가져와서 'YYYY-MM-DD' 형식으로 설정
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0'); // 월은 0부터 시작하므로 +1
+    const dd = String(today.getDate()).padStart(2, '0');
+    const formattedDate = `${yyyy}-${mm}-${dd}`;
+
+    // 입력 필드에 오늘 날짜를 디폴트로 설정
+    document.getElementById('date').value = formattedDate;
+
+    document.getElementById('predictionForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        fetch('/predict/', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            const resultDiv = document.getElementById('result');
+            resultDiv.style.display = 'block';
+            if (data.prediction !== undefined) {
+                const formattedPrediction = new Intl.NumberFormat('ko-KR').format(data.prediction);
+
+                resultDiv.textContent = `예측 가격: ${formattedPrediction} 원`;
+                resultDiv.className = 'mt-4 alert alert-success';
+            } else {
+                resultDiv.textContent = `오류: ${data.error}`;
+                resultDiv.className = 'mt-4 alert alert-danger';
+            }
+        })
+        .catch(error => {
+            const resultDiv = document.getElementById('result');
+            resultDiv.style.display = 'block';
+            resultDiv.textContent = '예측 중 오류가 발생했습니다. 다시 시도하세요.';
+            resultDiv.className = 'mt-4 alert alert-danger';
+        });
+    });
+</script>
+{% endblock %}

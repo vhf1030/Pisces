@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-4">어종별 시장 가격 예측</h1>
+
+    <!-- 입력 폼 -->
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="fish" class="form-label">어종</label>
+            <select name="fish" id="fish" class="form-select" required>
+                <option value="" disabled {% if not fish %}selected{% endif %}>어종을 선택하세요</option>
+                <option value="농어" {% if fish == "농어" %}selected{% endif %}>농어</option>
+                <option value="광어" {% if fish == "광어" %}selected{% endif %}>광어</option>
+                <option value="대게" {% if fish == "대게" %}selected{% endif %}>대게</option>
+                <option value="연어" {% if fish == "연어" %}selected{% endif %}>연어</option>
+                <option value="우럭" {% if fish == "우럭" %}selected{% endif %}>우럭</option>
+                <option value="참돔" {% if fish == "참돔" %}selected{% endif %}>참돔</option>
+                <option value="방어" {% if fish == "방어" %}selected{% endif %}>방어</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="date" class="form-label">날짜</label>
+            <input type="date" name="date" id="date" class="form-control" value="{{ date|default:'' }}" required>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">예측하기</button>
+    </form>
+
+{% if result %}
+    <!-- 결과 출력 -->
+    <div class="result-section mt-5">
+        <h2 class="mb-3">{{ fish }} 상세 정보</h2>
+            <table class="table table-bordered">
+                <tbody>
+                    <tr><th>상태</th><td>{{ item_info.state }}</td></tr>
+                    <tr><th>양식 여부</th><td>{{ item_info.raised }}</td></tr>
+                    <tr><th>크기</th><td>{{ item_info.size }}</td></tr>
+                    <tr><th>크기 기준</th><td>{{ item_info.sizeCriteria }}</td></tr>
+                    <tr><th>원산지</th><td>{{ item_info.origin }}</td></tr>
+                    <tr><th>지역</th><td>{{ item_info.region }}</td></tr>
+                    <tr><th>단위</th><td>{{ item_info.unit }}</td></tr>
+                </tbody>
+            </table>
+
+        <h2 class="mb-3">예측 결과</h2>
+
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-hover text-center">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>시장</th>
+                            <th>예측 가격</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for market, prediction in result.items %}
+                            <tr>
+                                <td>{{ market }}</td>
+                                <td>
+                                    {% if prediction and prediction.predictions is not None %}
+                                        {% load humanize %}
+                                        <strong>{{ prediction.predictions|floatformat:0|intcomma }}원</strong>
+                                    {% else %}
+                                        <span class="text-muted">-</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+</div>
+
+<script>
+    // 오늘 날짜를 기본값으로 설정
+    const dateField = document.getElementById('date');
+    if (!dateField.value) {
+        const today = new Date().toISOString().split('T')[0];
+        dateField.value = today;
+    }
+</script>
+{% endblock %}

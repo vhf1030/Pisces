@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-4">전체 마켓 시가 현황</h1>
+    <canvas id="marketChart" width="400" height="200"></canvas>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const marketData = JSON.parse('{{ market_data|escapejs }}');
+    const ctx = document.getElementById('marketChart').getContext('2d');
+    const chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: marketData.markets, // 예: ["Market 1", "Market 2", ...]
+            datasets: marketData.seafoods.map(seafood => ({
+                label: seafood.name,
+                data: seafood.prices, // 각 마켓별 가격 배열
+                backgroundColor: seafood.color,
+            }))
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { position: 'top' }
+            }
+        }
+    });
+</script>
+{% endblock %}
