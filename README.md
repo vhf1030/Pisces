@@ -41,9 +41,14 @@ Pisces ML은 10개의 마켓과 7종의 수산물을 대상으로 한 머신러�
 
 ## 서비스 화면
 
-![서비스 스크린샷 홈](./static/screenshot/screenshot_main.png)
-![서비스 스크린샷 어종별](./static/screenshot/screenshot_fish.png)
-![서비스 스크린샷 마켓별](./static/screenshot/screenshot_market.png)
+### 수산물 가격 예측
+![서비스 스크린샷 홈](./project_pisces/static/screenshot/screenshot_main.png)
+
+### 어종별 시장 가격 예측
+![서비스 스크린샷 어종별](./project_pisces/static/screenshot/screenshot_fish.png)
+
+### 시장별 수산물 가격 예측
+![서비스 스크린샷 마켓별](./project_pisces/static/screenshot/screenshot_market.png)
 
 ---
 
